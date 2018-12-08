@@ -1,0 +1,53 @@
+@font-face {
+	font-family: "OpenSans Semibold";
+	src: url('/fonts/OpenSans/OpenSans-Semibold.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Bold";
+	src: url('/fonts/OpenSans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Regular";
+	src: url('/fonts/OpenSans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Italic";
+	src: url('/fonts/OpenSans/OpenSans-Italic.ttf');
+}
+
+@font-face {
+	font-family: PrimeLight;
+	src: url('/fonts/prime/Prime Light.otf') format('opentype');
+}
+
+@font-face {
+	font-family: PrimeRegular;
+	src: url('/fonts/prime/Prime Regular.otf') format('opentype');
+}
+
+.wrapper.container-fluid {
+	margin: 100px auto;
+	width: 90%;
+}
+
+#wrapper-search {
+	border-radius: 6px;
+	color: rgba(0, 0, 0, 0.87);
+	background: #fff;
+	width: 100%;
+	height: fit-content;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+#wrapper-search .card-body>* {
+	width: 100%;
+	padding-top: 27px;
+}
+
+.product-details .card {
+	border: none;
+	box-shadow: none;
+}

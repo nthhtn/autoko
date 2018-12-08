@@ -1,0 +1,87 @@
+@font-face {
+	font-family: "OpenSans Semibold";
+	src: url('/fonts/OpenSans/OpenSans-Semibold.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Bold";
+	src: url('/fonts/OpenSans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Regular";
+	src: url('/fonts/OpenSans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Italic";
+	src: url('/fonts/OpenSans/OpenSans-Italic.ttf');
+}
+
+@font-face {
+	font-family: PrimeLight;
+	src: url('/fonts/prime/Prime Light.otf') format('opentype');
+}
+
+@font-face {
+	font-family: PrimeRegular;
+	src: url('/fonts/prime/Prime Regular.otf') format('opentype');
+}
+
+.wrapper.container {
+	margin-top: 100px;
+}
+
+#product-list {
+	margin-top: 60px;
+}
+
+.product-item {
+	padding: 0 20px;
+	margin: 20px 0;
+}
+
+.product-image {
+	width: 100%;
+	display: block;
+	border: 1px solid black;
+}
+
+.product-image img {
+	max-width: 100%;
+	height: auto;
+}
+
+.product-info {
+	width: 100%;
+	display: block;
+	border: 1px solid black;
+	border-top: none;
+}
+
+.product-name {
+	width: 100%;
+	display: block;
+	border-bottom: 1px solid black;
+	color: black;
+	font-family: "PrimeLight";
+	font-weight: bold;
+	font-size: 20px;
+	padding: 5px 0;
+}
+
+.product-price {
+	padding: 8px;
+	font-family: "PrimeRegular";
+	font-size: 16px;
+}
+
+.product-view {
+	padding: 0;
+}
+
+.product-view a {
+	margin: 0;
+	width: 100%;
+	border-radius: 0;
+}

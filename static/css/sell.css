@@ -1,0 +1,57 @@
+@font-face {
+	font-family: "OpenSans Semibold";
+	src: url('/fonts/OpenSans/OpenSans-Semibold.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Bold";
+	src: url('/fonts/OpenSans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Regular";
+	src: url('/fonts/OpenSans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Italic";
+	src: url('/fonts/OpenSans/OpenSans-Italic.ttf');
+}
+
+@font-face {
+	font-family: PrimeLight;
+	src: url('/fonts/prime/Prime Light.otf') format('opentype');
+}
+
+@font-face {
+	font-family: PrimeRegular;
+	src: url('/fonts/prime/Prime Regular.otf') format('opentype');
+}
+
+.wrapper.container {
+	margin-top: 100px;
+}
+
+#sell-form {
+	margin-top: 60px;
+}
+
+#sell-form .input-group {
+	margin-bottom: 17px;
+}
+
+#sell-form label {
+	margin-left: 15px;
+}
+
+#image-btn {
+	outline: none;
+}
+
+#car-images {
+	display: none;
+}
+
+#selected-count {
+	margin-top: 16px;
+}

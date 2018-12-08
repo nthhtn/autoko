@@ -1,0 +1,163 @@
+<html lang="en">
+
+<head>
+	<title>Autoko</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<%-include('base/plugins')%>
+	<link rel="stylesheet" href="/css/sell.css">
+</head>
+
+<body>
+	<%-include('base/navbar')%>
+	<div class="wrapper container">
+		<div class="row">
+			<div class="ml-auto mr-auto text-center card" id="sell-form">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title">Sell your car</h4>
+				</div>
+				<div class="card-body row">
+					<div class="form-group col-sm-12 col-md-12 col-xs-12">
+						<label for="name">Car item name</label>
+						<input type="text" class="form-control" placeholder="Write your car item name, brief description, etc.">
+					</div>
+					<div class="input-group col-sm-6 col-md-6 col-xs-12">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="manufacturer">
+							<option value="0">Choose manufacturer</option>
+						</select>
+					</div>
+					<div class="input-group col-sm-6 col-md-6 col-xs-12">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="color">
+							<option value="0">Choose color</option>
+							<option value="black">Black</option>
+							<option value="blue">Blue</option>
+							<option value="bronze">Bronze</option>
+							<option value="grey">Grey</option>
+							<option value="gold">Gold</option>
+							<option value="red">Red</option>
+							<option value="silver">Silver</option>
+							<option value="other">Other color</option>
+						</select>
+					</div>
+					<div class="input-group col-sm-6 col-md-6 col-xs-12">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="model" disabled>
+							<option value="0">Choose model of manufacturer</option>
+						</select>
+					</div>
+					<div class="input-group col-sm-6 col-md-6 col-xs-12">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="power" disabled>
+							<option value="0">Choose power (kW)</option>
+							<option value="80">80</option>
+							<option value="100">100</option>
+							<option value="125">125</option>
+							<option value="150">150</option>
+							<option value="175">175</option>
+							<option value="200">200</option>
+							<option value="225">225</option>
+							<option value="250">250</option>
+							<option value="300">300</option>
+							<option value="350">350</option>
+						</select>
+					</div>
+					<div class="input-group col-sm-6 col-md-6 col-xs-12">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="engine" disabled>
+							<option value="0">Choose engine size (cc)</option>
+							<option value="1000">1000</option>
+							<option value="1500">1500</option>
+							<option value="2000">1000</option>
+							<option value="2500">1500</option>
+							<option value="3000">1000</option>
+							<option value="3500">1500</option>
+							<option value="4000">1000</option>
+							<option value="4500">1500</option>
+							<option value="5000">1000</option>
+							<option value="5500">5500</option>
+							<option value="6000">6000</option>
+						</select>
+					</div>
+					<div class="input-group col-sm-6 col-md-6 col-xs-12">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="fuel" disabled>
+							<option value="0">Choose fuel type</option>
+							<option value="diesel">Diesel</option>
+							<option value="electric">Electric</option>
+							<option value="lgp">LGP</option>
+							<option value="petrol">Petrol</option>
+							<option value="other">Other fuel</option>
+						</select>
+					</div>
+					<div class="input-group col-sm-6 col-md-6 col-xs-12">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="transmission" disabled>
+							<option value="0">Choose transmission</option>
+							<option value="amt">AMT</option>
+							<option value="automatic">Automatic</option>
+							<option value="manual">Manual</option>
+						</select>
+					</div>
+					<div class="input-group col-sm-6 col-md-6 col-xs-12">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="cylinder" disabled>
+							<option value="-1">Choose cylinder</option>
+							<option value="0">0</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="8">8</option>
+							<option value="10">10</option>
+							<option value="12">12</option>
+						</select>
+					</div>
+					<div class="form-group col-sm-6 col-md-6 col-xs-12">
+						<label for="input-model">Model codename</label>
+						<input type="text" class="form-control" placeholder="Enter your model codename" id="input-model" disabled>
+					</div>
+					<div class="form-group col-sm-6 col-md-6 col-xs-12">
+						<label for="year">Production year</label>
+						<input type="number" class="form-control" placeholder="Production year of the model" id="year" disabled>
+					</div>
+					<div class="form-group col-sm-6 col-md-6 col-xs-12">
+						<label for="price">Price</label>
+						<input type="number" class="form-control" placeholder="Unit of currency: euro">
+					</div>
+					<div class="form-group col-sm-6 col-md-6 col-xs-12">
+						<label for="address">Street address</label>
+						<input type="text" class="form-control" placeholder="Enter street address">
+					</div>
+					<div class="form-group col-sm-6 col-md-6 col-xs-12">
+						<label for="city">City</label>
+						<input type="text" class="form-control" placeholder="Enter city">
+					</div>
+					<div class="form-group col-sm-6 col-md-6 col-xs-12">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="country" style="margin-top: 22px;">
+							<option value="0">Choose country</option>
+							<option value="FI">Finland</option>
+							<option value="SE">Sweden</option>
+							<option value="NO">Norway</option>
+						</select>
+					</div>
+					<!-- <div class="form-group col-sm-6 col-md-6 col-xs-12">
+						<label for="acquired">Date acquired</label>
+						<input type="text" class="form-control datetimepicker" placeholder="DD/MM/YYYY" />
+					</div> -->
+					<div class="form-group col-sm-6 col-md-6 col-xs-12">
+						<label for="registration">Registration year</label>
+						<input type="number" class="form-control" placeholder="Year of your vehicle registration">
+					</div>
+					<div class="form-group col-sm-2 col-md-2 col-xs-6">
+						<button class="btn btn-primary" id="image-btn"><i class="material-icons">add_to_photos</i> Add images</button>
+						<input type="file" id="car-images" multiple class="form-control" accept="image/*">
+					</div>
+					<div class="form-group col-sm-2 col-md-2 col-xs-6">
+						<label id="selected-count"></label>
+					</div>
+					<div class="input-group" style="margin-top: 20px;">
+						<button class="btn btn-primary ml-auto mr-auto" id="sell-btn">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src='/js/sell.js'></script>
+</body>
+
+</html>
