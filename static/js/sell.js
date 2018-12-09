@@ -12,27 +12,64 @@ $('.datetimepicker').datetimepicker({
 	}
 });
 
-$('#image-btn').on('click', () => $('#car-images').trigger('click'));
+$('#image-btn').on('click', () => $('#car_images').trigger('click'));
 
-$('#car-images').on('change', function () {
+$('#car_images').on('change', function () {
 	let files = $(this)[0].files;
 	$('#selected-count').text(files.length + ' files selected');
 });
 
 $('#sell-btn').on('click', () => {
 	let formdata = new FormData();
-	let file = $('#car-images')[0].files[0];
-	formdata.append('car-images', file);
+	let name = $('#name').val();
+	if (!name) {
+		return $('.error').text('Missing field(s)');
+	}
+	formdata.append('name', name);
+	let manufacturer = $('#manufacturer').val();
+	if (manufacturer === 0) {
+		return $('.error').text('Missing field(s)');
+	}
+	formdata.append('manufacturer_id', manufacturer);
+	let model_id = $('#model').val();
+	if (model_id === 0) {
+		return $('.error').text('Missing field(s)');
+	}
+	if (model_id === 1) {
+		formdata.append('model_name', $('#input-model').val());
+		formdata.append('engine', $('#engine').val());
+		formdata.append('fuel', $('#fuel').val());
+		formdata.append('transmission', $('#transmission').val());
+		formdata.append('cylinder', $('#cylinder').val());
+		formdata.append('power', $('#power').val());
+		formdata.append('year', $('#year').val());
+	} else {
+		formdata.append('model_id', model_id);
+	}
+	let color = $('#color').val();
+	formdata.append('color', color);
+	let registration_year = $('#registration-year').val();
+	formdata.append('registration_year', registration_year);
+	let price = $('#price').val();
+	formdata.append('price', price);
+	let files = $('#car_images')[0].files;
+	if (files.length === 0) {
+		return $('.error').text('Missing field(s)');
+	}
+	$.each(files, (i, file) => {
+		formdata.append('car_images', file);
+	});
+	$('.error').text('');
 	$.ajax({
 		url: '/sell',
 		type: 'POST',
 		data: formdata,
 		contentType: false,
 		processData: false,
-		success: function () {
+		success: (response) => {
 			console.log('success');
 		},
-		error: function () {
+		error: (error) => {
 			console.log('error');
 		}
 	});

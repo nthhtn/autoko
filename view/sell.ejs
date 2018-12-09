@@ -19,7 +19,7 @@
 				<div class="card-body row">
 					<div class="form-group col-sm-12 col-md-12 col-xs-12">
 						<label for="name">Car item name</label>
-						<input type="text" class="form-control" placeholder="Write your car item name, brief description, etc.">
+						<input type="text" id="name" class="form-control" placeholder="Write your car item name, brief description, etc.">
 					</div>
 					<div class="input-group col-sm-6 col-md-6 col-xs-12">
 						<select class="form-control selectpicker" data-style="btn btn-link" id="manufacturer">
@@ -117,11 +117,11 @@
 					</div>
 					<div class="form-group col-sm-6 col-md-6 col-xs-12">
 						<label for="price">Price</label>
-						<input type="number" class="form-control" placeholder="Unit of currency: euro">
+						<input type="number" id="price" class="form-control" placeholder="Unit of currency: euro">
 					</div>
 					<div class="form-group col-sm-6 col-md-6 col-xs-12">
 						<label for="address">Street address</label>
-						<input type="text" class="form-control" placeholder="Enter street address">
+						<input type="text" id="address" class="form-control" placeholder="Enter street address">
 					</div>
 					<div class="form-group col-sm-6 col-md-6 col-xs-12">
 						<label for="city">City</label>
@@ -135,21 +135,22 @@
 							<option value="NO">Norway</option>
 						</select>
 					</div>
-					<!-- <div class="form-group col-sm-6 col-md-6 col-xs-12">
-						<label for="acquired">Date acquired</label>
-						<input type="text" class="form-control datetimepicker" placeholder="DD/MM/YYYY" />
-					</div> -->
 					<div class="form-group col-sm-6 col-md-6 col-xs-12">
-						<label for="registration">Registration year</label>
-						<input type="number" class="form-control" placeholder="Year of your vehicle registration">
+						<label for="registration-year">Registration year</label>
+						<input type="number" id="registration-year" class="form-control" placeholder="Year of your vehicle registration">
 					</div>
 					<div class="form-group col-sm-2 col-md-2 col-xs-6">
 						<button class="btn btn-primary" id="image-btn"><i class="material-icons">add_to_photos</i> Add images</button>
-						<input type="file" id="car-images" multiple class="form-control" accept="image/*">
+						<input type="file" id="car_images" multiple class="form-control" accept="image/*">
 					</div>
 					<div class="form-group col-sm-2 col-md-2 col-xs-6">
 						<label id="selected-count"></label>
 					</div>
+					<div class="form-group col-sm-12 col-md-12 col-xs-12">
+						<label for="description">Additional information</label>
+						<textarea class="form-control" id="description" rows="3"></textarea>
+					</div>
+					<p class="error"></p>
 					<div class="input-group" style="margin-top: 20px;">
 						<button class="btn btn-primary ml-auto mr-auto" id="sell-btn">Submit</button>
 					</div>

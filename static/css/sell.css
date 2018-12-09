@@ -55,3 +55,8 @@
 #selected-count {
 	margin-top: 16px;
 }
+
+.error {
+	color: red;
+	margin-left: 15px;
+}
