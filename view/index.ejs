@@ -18,116 +18,25 @@
 					<h4 class="card-title">Newest in stock</h4>
 				</div>
 				<div class="card-body row">
+					<%cars.forEach(function(car){%>
 					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
 						<div class="product-image">
-							<img src="/img.jpg" alt="">
+							<img src="/uploads/<%=car.avatar%>" alt="">
 						</div>
 						<div class="product-info">
-							<div class="product-name"><a href="/car">Lorem ipsum</a></div>
+							<div class="product-name"><a href="/car/<%=car._id%>">
+									<%=car.name%></a></div>
 							<div class="row" style="margin: 0">
-								<div class="product-price col-md-6">9999 euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i class="material-icons">add_shopping_cart</i> Buy</a></div>
+								<div class="product-price col-md-6">
+									<%=car.price%> euro</div>
+								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i
+										 class="material-icons">add_shopping_cart</i> Buy</a></div>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
-						<div class="product-image">
-							<img src="/img.jpg" alt="">
-						</div>
-						<div class="product-info">
-							<div class="product-name"><a href="/car">Lorem ipsum</a></div>
-							<div class="row" style="margin: 0">
-								<div class="product-price col-md-6">9999 euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i class="material-icons">add_shopping_cart</i> Buy</a></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
-						<div class="product-image">
-							<img src="/img.jpg" alt="">
-						</div>
-						<div class="product-info">
-							<div class="product-name"><a href="/car">Lorem ipsum</a></div>
-							<div class="row" style="margin: 0">
-								<div class="product-price col-md-6">9999 euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i class="material-icons">add_shopping_cart</i> Buy</a></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
-						<div class="product-image">
-							<img src="/img.jpg" alt="">
-						</div>
-						<div class="product-info">
-							<div class="product-name"><a href="/car">Lorem ipsum</a></div>
-							<div class="row" style="margin: 0">
-								<div class="product-price col-md-6">9999 euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i class="material-icons">add_shopping_cart</i> Buy</a></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
-						<div class="product-image">
-							<img src="/img.jpg" alt="">
-						</div>
-						<div class="product-info">
-							<div class="product-name"><a href="/car">Lorem ipsum</a></div>
-							<div class="row" style="margin: 0">
-								<div class="product-price col-md-6">9999 euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i class="material-icons">add_shopping_cart</i> Buy</a></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
-						<div class="product-image">
-							<img src="/img.jpg" alt="">
-						</div>
-						<div class="product-info">
-							<div class="product-name"><a href="/car">Lorem ipsum</a></div>
-							<div class="row" style="margin: 0">
-								<div class="product-price col-md-6">9999 euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i class="material-icons">add_shopping_cart</i> Buy</a></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
-						<div class="product-image">
-							<img src="/img.jpg" alt="">
-						</div>
-						<div class="product-info">
-							<div class="product-name"><a href="/car">Lorem ipsum</a></div>
-							<div class="row" style="margin: 0">
-								<div class="product-price col-md-6">9999 euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i class="material-icons">add_shopping_cart</i> Buy</a></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
-						<div class="product-image">
-							<img src="/img.jpg" alt="">
-						</div>
-						<div class="product-info">
-							<div class="product-name"><a href="/car">Lorem ipsum</a></div>
-							<div class="row" style="margin: 0">
-								<div class="product-price col-md-6">9999 euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i class="material-icons">add_shopping_cart</i> Buy</a></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
-						<div class="product-image">
-							<img src="/img.jpg" alt="">
-						</div>
-						<div class="product-info">
-							<div class="product-name"><a href="/car">Lorem ipsum</a></div>
-							<div class="row" style="margin: 0">
-								<div class="product-price col-md-6">9999 euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i class="material-icons">add_shopping_cart</i> Buy</a></div>
-							</div>
-						</div>
-					</div>
+					<%})%>
 				</div>
-				<div class="card-footer">
+				<!-- <div class="card-footer">
 					<nav>
 						<ul class="pagination">
 							<li class="page-item disabled">
@@ -143,7 +52,7 @@
 							</li>
 						</ul>
 					</nav>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

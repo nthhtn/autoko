@@ -1,8 +1,8 @@
-export default class UserPreferenceModel {
+export default class PreferenceModel {
 
 	constructor(db) {
 		this._db = db;
-		this._collection = 'user_preference';
+		this._collection = 'preference';
 	}
 
 	async create(object) {

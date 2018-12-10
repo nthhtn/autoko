@@ -14,22 +14,34 @@
 		<div class="row">
 			<div class="ml-auto mr-auto card col-md-9 col-sm-9 col-xs-9">
 				<div class="card-header card-header-primary">
-					<h4 class="card-title text-center">Car xxx</h4>
+					<h4 class="card-title text-center">
+						<%=car.name%>
+					</h4>
 				</div>
 				<div class="card-body row product-details">
 					<div class="col-md-6 col-sm-6 col-xs-12">
 						<div id="home-carousel" class="carousel slide" data-ride="carousel">
 							<ol class="carousel-indicators">
+								<%images.forEach(function(image,i){%>
+								<%if (i==0){%>
 								<li data-target="#home-carousel" data-slide-to="0" class="active"></li>
-								<li data-target="#home-carousel" data-slide-to="1"></li>
+								<%}else{%>
+								<li data-target="#home-carousel" data-slide-to="<%=i%>"></li>
+								<%}%>
+								<%})%>
 							</ol>
 							<div class="carousel-inner">
+								<%images.forEach(function(image,i){%>
+								<%if (i==0){%>
 								<div class="carousel-item active">
-									<img class="d-block w-100" src="/img.jpg">
+									<img class="d-block w-100" src="/uploads/<%=image.filename%>">
 								</div>
+								<%}else{%>
 								<div class="carousel-item">
-									<img class="d-block w-100" src="/Pontiac_G6.jpg">
+									<img class="d-block w-100" src="/uploads/<%=image.filename%>">
 								</div>
+								<%}%>
+								<%})%>
 							</div>
 							<a class="carousel-control-prev" href="#home-carousel" role="button" data-slide="prev">
 								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -43,46 +55,74 @@
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-12 row">
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Manufacturer:</span> Volskwagen</p>
+							<p><span class="title">Manufacturer:</span>
+								<%=manufacturer.name%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Model:</span> Eos</p>
+							<p><span class="title">Model:</span>
+								<%=model.name%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Power (kW):</span> 125</p>
+							<p><span class="title">Power (kW):</span>
+								<%=model.power%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Fuel:</span> Electric</p>
+							<p><span class="title">Fuel:</span>
+								<%=model.fuel%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Transmission:</span> Manual</p>
+							<p><span class="title">Transmission:</span>
+								<%=model.transmission%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Cylinder:</span> 4</p>
+							<p><span class="title">Cylinder:</span>
+								<%=model.cylinder%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Engine size (cc):</span> 1000</p>
+							<p><span class="title">Engine size (cc):</span>
+								<%=model.engine%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Price (euro):</span> 9999</p>
+							<p><span class="title">Price (euro):</span>
+								<%=car.price%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Color:</span> Red</p>
+							<p><span class="title">Color:</span>
+								<%=car.color%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Production year:</span> 2010</p>
+							<p><span class="title">Production year:</span>
+								<%=model.year%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Street address:</span> ??? Xyz-katu</p>
+							<p><span class="title">Street address:</span>
+								<%=car.address%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">City:</span> Lappeenranta</p>
+							<p><span class="title">City:</span>
+								<%=car.city%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Country:</span> Finland</p>
+							<p><span class="title">Country:</span>
+								<%=car.country%>
+							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-							<p><span class="title">Registration year:</span> 2010</p>
+							<p><span class="title">Registration year:</span>
+								<%=car.registration_year%>
+							</p>
 						</div>
 					</div>
 					<div class="card col-md-6 col-sm-6 col-xs-12">
@@ -90,13 +130,21 @@
 							<h4 class="card-title text-center">Seller information</h4>
 							<div class="card-text row">
 								<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-									<p><span class="title">Full name:</span> Kerrin Vine</p>
+									<p><span class="title">Full name:</span>
+										<%=seller.fullname%>
+									</p>
 								</div>
 								<div class="col-md-6 col-sm-6 col-xs-6 product-field">
-									<p><span class="title">Email:</span> kvine4@last.fm</p>
+									<p><span class="title">Email:</span>
+										<%=seller.email%>
+									</p>
 								</div>
 								<div class="col-md-12 col-sm-12 col-xs-12 product-field">
-									<p><span class="title">Address:</span> 9 Dennis Plaza, Urjala, Finland</p>
+									<p><span class="title">Address:</span>
+										<%=seller.address%>,
+										<%=seller.city%>,
+										<%=seller.country%>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -105,23 +153,7 @@
 						<div class="card-body">
 							<h4 class="card-title text-center">Additional information</h4>
 							<div class="card-text" style="text-align: justify;">
-								Lorem ipsum dolor sit amet, ferri discere mei ex, eu pro utinam soluta. Eu tale viderer vulputate mea. Adhuc
-								intellegam interpretaris ad usu, sed eu tota tritani sapientem. Admodum petentium patrioque nam in, utroque
-								apeirian intellegat per cu, ad eros nullam oportere mea. Integre voluptatum no mel. Affert accusamus urbanitas
-								ea eam. An vel dicant verear sententiae, probo vocibus civibus ex mel.
-
-								At ludus malorum fastidii est, eu liber accusata est. Ancillae invidunt ocurreret qui in, ex alii facilisis
-								mediocritatem sea. Ne latine sententiae pro, vix debet oporteat lobortis at. At equidem voluptua oportere has,
-								facete repudiare deterruisset in his. Ad eam pertinax expetendis constituam.
-
-								Ea erat lorem per, cetero ponderum temporibus nec ei. Ei tamquam euismod nam. Te fugit dicat nam, eu per omnis
-								tacimates atomorum. Sit eu malorum deleniti postulant, harum tollit explicari cum ei.
-
-								Prima ubique ea pri. Has ne fabulas splendide, mea mediocrem maiestatis ad, brute scaevola reprehendunt sea ad.
-								Error argumentum no has. Cu vis nominavi vulputate, eu pericula reprehendunt has. Nec reque reformidans id.
-
-								Ex iudico eruditi eum. Vis decore dicunt iudicabit in, vulputate elaboraret ius ne. Nibh congue fuisset eam no,
-								ne eam veri clita eligendi. At quis hinc eam. Vix fabellas omittantur ea.
+								<%=car.description%>
 							</div>
 						</div>
 					</div>

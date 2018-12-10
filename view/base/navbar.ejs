@@ -12,6 +12,9 @@
 		<div class="collapse navbar-collapse">
 			<ul class="navbar-nav ml-auto">
 				<%if (user){%>
+				<p style="margin: 0; font-weight: bold; font-family: PrimeRegular">Hello,
+					<%=user.fullname%>
+				</p>
 				<li class="nav-item">
 					<a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/profile" target="_blank"
 					 data-original-title="Your profile">

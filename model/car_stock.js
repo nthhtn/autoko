@@ -52,9 +52,9 @@ export default class StockModel {
 
 	}
 
-	async queryByFields(fields) {
+	async queryByFields(fields = {}, sort = { date_posted: -1 }, limit = 9, offset = 0) {
 		try {
-			const list = await this._db.collection(this._collection).find(fields).toArray();
+			const list = await this._db.collection(this._collection).find(fields).sort(sort).skip(offset).limit(limit).toArray();
 			return Promise.resolve(list);
 		} catch (error) {
 			return Promise.reject(error);

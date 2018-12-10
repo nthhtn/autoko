@@ -5,12 +5,13 @@ import { ObjectID } from 'mongodb';
 import middleware from '../../lib/middleware';
 import ModelModel from '../../model/car_model';
 import StockModel from '../../model/car_stock';
+import ImageModel from '../../model/car_image';
 
 module.exports = (app) => {
 
 	const router = express.Router();
 	const storage = multer.diskStorage({
-		destination: (req, file, callback) => callback(null, 'uploads/'),
+		destination: (req, file, callback) => callback(null, 'static/uploads/'),
 		filename: (req, file, callback) => {
 			const name = `${file.originalname}_${Date.now}`;
 			const newname = `${crypto.createHash('md5').update(name).digest('hex')}.${file.mimetype.split('/')[1]}`;
@@ -28,11 +29,9 @@ module.exports = (app) => {
 	router.use(middleware.isSignedIn);
 
 	router.route('/sell')
-		.get(async (req, res) => res.render('sell', { user: req.session.user }))
+		.get(async (req, res) => res.render('sell', { user: req.session.user, country: req.session.country }))
 		.post(upload, async (req, res) => {
-			console.log(req.files);
-			console.log(req.body);
-			let { manufacturer_id, model_id, color, price, address, city, country, registration_year, description,
+			let { manufacturer_id, model_id, name, color, price, address, city, country, registration_year, description,
 				model_name, fuel, engine, power, year, transmission, cylinder } = req.body;
 			if (!req.body.model_id) {
 				model_id = new ObjectID().toString();
@@ -60,6 +59,13 @@ module.exports = (app) => {
 			});
 			const Stock = new StockModel(req._db);
 			await Stock.create(data);
+			const Image = new ImageModel(req._db);
+			const image_list = req.files.map((file) => ({
+				_id: new ObjectID().toString(),
+				car_id: item_id,
+				filename: file.filename
+			}));
+			await Image.createMany(image_list);
 			res.json({ success: true, result: data });
 		});
 

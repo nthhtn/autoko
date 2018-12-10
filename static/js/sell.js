@@ -47,11 +47,40 @@ $('#sell-btn').on('click', () => {
 		formdata.append('model_id', model_id);
 	}
 	let color = $('#color').val();
+	if (color == 0) {
+		return $('.error').text('Missing field(s)');
+	}
 	formdata.append('color', color);
-	let registration_year = $('#registration-year').val();
+	let registration_year = $('#registration_year').val();
+	if (!registration_year) {
+		return $('.error').text('Missing field(s)');
+	}
 	formdata.append('registration_year', registration_year);
 	let price = $('#price').val();
+	if (!price) {
+		return $('.error').text('Missing field(s)');
+	}
 	formdata.append('price', price);
+	let address = $('#address').val();
+	if (!address) {
+		return $('.error').text('Missing field(s)');
+	}
+	formdata.append('address', address);
+	let city = $('#city').val();
+	if (!city) {
+		return $('.error').text('Missing field(s)');
+	}
+	formdata.append('city', city);
+	let country = $('#country').val();
+	if (!country) {
+		return $('.error').text('Missing field(s)');
+	}
+	formdata.append('country', country);
+	let description = $('#description').val();
+	if (!description) {
+		return $('.error').text('Missing field(s)');
+	}
+	formdata.append('description', description);
 	let files = $('#car_images')[0].files;
 	if (files.length === 0) {
 		return $('.error').text('Missing field(s)');
@@ -67,7 +96,7 @@ $('#sell-btn').on('click', () => {
 		contentType: false,
 		processData: false,
 		success: (response) => {
-			console.log('success');
+			window.location.href = '/car/' + response.result._id;
 		},
 		error: (error) => {
 			console.log('error');
