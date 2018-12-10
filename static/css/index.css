@@ -50,6 +50,7 @@
 .product-image img {
 	max-width: 100%;
 	height: auto;
+	max-height: 160px;
 }
 
 .product-info {
