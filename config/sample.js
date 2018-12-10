@@ -113,6 +113,13 @@ const user_list = [{
 	"address": "0244 Buell Circle",
 	"city": "Stockholm",
 	"country": "SE"
+},
+{
+	"fullname": "Hien Nguyen",
+	"email": "hien.nguyen@student.lut.fi",
+	"address": "2A19 Punkkerikatu",
+	"city": "Lappeenranta",
+	"country": "FI"
 }];
 
 const power_list = [80, 100, 125, 150, 175, 200, 225, 250, 300, 350];
