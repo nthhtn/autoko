@@ -40,7 +40,7 @@ module.exports = (app) => {
 					name: model_name,
 					power: parseInt(power),
 					engine: parseInt(engine),
-					cylinder: paseInt(cylinder),
+					cylinder: parseInt(cylinder),
 					year: parseInt(year),
 					fuel, transmission, manufacturer_id
 				});
@@ -51,7 +51,8 @@ module.exports = (app) => {
 			let item_id = new ObjectID().toString();
 			let data = Object.assign({}, {
 				_id: item_id,
-				name, manufacturer_id, model_id, color, price, address, city, country, description,
+				name, manufacturer_id, model_id, color, address, city, country, description,
+				price: parseFloat(price),
 				registration_year: parseInt(registration_year),
 				seller_id: req.session.user._id,
 				purchase_status: false,

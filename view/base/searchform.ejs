@@ -33,7 +33,7 @@
 				<i class="fa fa-search"></i>
 			</span>
 		</div>
-		<input type="text" class="form-control" placeholder="What do you want to find?" search="">
+		<input type="text" id="search-keyword" class="form-control" placeholder="What do you want to find?">
 	</div>
 	<div class="input-group">
 		<div class="input-group-prepend">
@@ -51,26 +51,94 @@
 				<i class="fa fa-car"></i>
 			</span>
 		</div>
-		<input type="text" class="form-control" placeholder="Model">
+		<select class="form-control selectpicker" data-style="btn btn-link" id="search-model" disabled>
+			<option value="0">Any model</option>
+		</select>
 	</div>
 	<div class="input-group">
 		<div class="input-group-prepend">
 			<span class="input-group-text">
-				<i class="fa fa-arrow-up"></i>
+				<i class="fa fa-pencil"></i>
 			</span>
 		</div>
-		<input type="number" class="form-control" placeholder="Price: from">
+		<select class="form-control selectpicker" data-style="btn btn-link" id="search-color">
+			<option value="0">Any color</option>
+			<option value="black">Black</option>
+			<option value="blue">Blue</option>
+			<option value="bronze">Bronze</option>
+			<option value="grey">Grey</option>
+			<option value="gold">Gold</option>
+			<option value="red">Red</option>
+			<option value="silver">Silver</option>
+			<option value="other">Other color</option>
+		</select>
 	</div>
 	<div class="input-group">
 		<div class="input-group-prepend">
 			<span class="input-group-text">
-				<i class="fa fa-arrow-down"></i>
+				<i class="fa fa-money"></i>
 			</span>
 		</div>
-		<input type="number" class="form-control" placeholder="Price: to">
+		<input type="number" id="price_from" class="form-control" placeholder="Price (euro): from">
+		<input type="number" id="price_to" class="form-control" placeholder="to">
 	</div>
-	<div class="input-group" style="margin-top: 20px;">
-		<button class="btn btn-primary ml-auto mr-auto">
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text">
+				<i class="fa fa-superpowers"></i>
+			</span>
+		</div>
+		<input type="number" id="engine_from" class="form-control" placeholder="Engine size (cc): from">
+		<input type="number" id="engine_to" class="form-control" placeholder="to">
+	</div>
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text">
+				<i class="fa fa-sun-o"></i>
+			</span>
+		</div>
+		<input type="number" id="power_from" class="form-control" placeholder="Power (kW): from">
+		<input type="number" id="power_to" class="form-control" placeholder="to">
+	</div>
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text">
+				<i class="fa fa-retweet"></i>
+			</span>
+		</div>
+		<input type="number" id="cylinder_from" class="form-control" placeholder="Cylinder: from">
+		<input type="number" id="cylinder_to" class="form-control" placeholder="to">
+	</div>
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text">
+				<i class="fa fa-battery-full"></i>
+			</span>
+		</div>
+		<select class="form-control selectpicker" data-style="btn btn-link" id="search-fuel">
+			<option value="0">Any fuel type</option>
+			<option value="diesel">Diesel</option>
+			<option value="electric">Electric</option>
+			<option value="lgp">LGP</option>
+			<option value="petrol">Petrol</option>
+			<option value="other">Other</option>
+		</select>
+	</div>
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text">
+				<i class="fa fa-cog"></i>
+			</span>
+		</div>
+		<select class="form-control selectpicker" data-style="btn btn-link" id="search-transmission">
+			<option value="0">Any transmission</option>
+			<option value="amt">AMT</option>
+			<option value="automatic">Automatic</option>
+			<option value="manual">Manual</option>
+		</select>
+	</div>
+	<div class="input-group">
+		<button class="btn btn-primary ml-auto mr-auto" id="search-btn">
 			<i class="material-icons">search</i> Search
 		</button>
 	</div>

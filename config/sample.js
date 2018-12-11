@@ -117,7 +117,23 @@ const user_list = [{
 {
 	"fullname": "Hien Nguyen",
 	"email": "hien.nguyen@student.lut.fi",
-	"address": "2A19 Punkkerikatu",
+	"address": "2A18 Punkkerikatu",
+	"city": "Lappeenranta",
+	"country": "FI"
+},
+,
+{
+	"fullname": "Muxing Liu",
+	"email": "muxing.liu@student.lut.fi",
+	"address": "5 Punkkerikatu",
+	"city": "Lappeenranta",
+	"country": "FI"
+},
+,
+{
+	"fullname": "Tanvir Hassan",
+	"email": "tanvir.hassan@student.lut.fi",
+	"address": "Unknown",
 	"city": "Lappeenranta",
 	"country": "FI"
 }];

@@ -15,13 +15,18 @@ module.exports = (app) => {
 
 	router.route('/')
 		.get(async (req, res) => {
+			const sort = { date_posted: -1 };
+			const limit = 9;
+			const page = req.query.page || 1;
 			const Stock = new StockModel(req._db);
 			const Image = new ImageModel(req._db);
-			let cars = await Stock.queryByFields({});
+			let cars = await Stock.queryByFields({}, sort, limit, limit * (page - 1));
+			const count = await Stock.countByFields({});
+			const has_more = count > limit * (page - 1) + cars.length;
 			Promise.map(cars, async (car) => {
 				const images = await Image.queryByFields({ car_id: car._id });
 				car.avatar = images[0].filename;
-			}).then(() => res.render('index', { user: req.session.user, cars }));
+			}).then(() => res.render('index', { user: req.session.user, cars, count, has_more, page }));
 		});
 
 	router.route('/signin')
