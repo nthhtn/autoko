@@ -32,10 +32,10 @@ $('#sell-btn').on('click', () => {
 	}
 	formdata.append('manufacturer_id', manufacturer);
 	let model_id = $('#model').val();
-	if (model_id === 0) {
+	if (model_id == 0) {
 		return $('.error').text('Missing field(s)');
 	}
-	if (model_id === 1) {
+	if (model_id == 1) {
 		formdata.append('model_name', $('#input-model').val());
 		formdata.append('engine', $('#engine').val());
 		formdata.append('fuel', $('#fuel').val());
@@ -75,7 +75,7 @@ $('#sell-btn').on('click', () => {
 	if (!country) {
 		return $('.error').text('Missing field(s)');
 	}
-	formdata.append('country', country);
+	// formdata.append('country', country);
 	let description = $('#description').val();
 	if (!description) {
 		return $('.error').text('Missing field(s)');
@@ -90,13 +90,13 @@ $('#sell-btn').on('click', () => {
 	});
 	$('.error').text('');
 	$.ajax({
-		url: '/sell',
+		url: '/sell?country=' + country,
 		type: 'POST',
 		data: formdata,
 		contentType: false,
 		processData: false,
 		success: (response) => {
-			window.location.href = '/car/' + response.result._id;
+			window.location.href = '/car/' + response.result._id + '?country=' + country;
 		},
 		error: (error) => {
 			console.log('error');

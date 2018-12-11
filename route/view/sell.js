@@ -33,9 +33,9 @@ module.exports = (app) => {
 		.post(upload, async (req, res) => {
 			let { manufacturer_id, model_id, name, color, price, address, city, country, registration_year, description,
 				model_name, fuel, engine, power, year, transmission, cylinder } = req.body;
-			if (!req.body.model_id) {
+			if (!model_id) {
 				model_id = new ObjectID().toString();
-				const model = Object.assign({
+				const newmodel = Object.assign({}, {
 					_id: model_id,
 					name: model_name,
 					power: parseInt(power),
@@ -44,9 +44,9 @@ module.exports = (app) => {
 					year: parseInt(year),
 					fuel, transmission, manufacturer_id
 				});
-				await ModelFI.create(model);
-				await ModelSE.create(model);
-				await ModelNO.create(model);
+				await ModelFI.create(newmodel);
+				await ModelSE.create(newmodel);
+				await ModelNO.create(newmodel);
 			}
 			let item_id = new ObjectID().toString();
 			let data = Object.assign({}, {

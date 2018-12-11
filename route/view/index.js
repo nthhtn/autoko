@@ -26,7 +26,10 @@ module.exports = (app) => {
 			Promise.map(cars, async (car) => {
 				const images = await Image.queryByFields({ car_id: car._id });
 				car.avatar = images[0].filename;
-			}).then(() => res.render('index', { user: req.session.user, cars, count, has_more, page }));
+			}).then(() => res.render('index', {
+				user: req.session.user, cars, count, has_more, page,
+				country: req.query.country || req.ipInfo.country
+			}));
 		});
 
 	router.route('/signin')

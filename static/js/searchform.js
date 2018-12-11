@@ -50,6 +50,7 @@ $('#search-btn').on('click', () => {
 		cylinder_from: $('#cylinder_from').val() == '' ? undefined : $('#cylinder_from').val(),
 		cylinder_to: $('#cylinder_to').val() == '' ? undefined : $('#cylinder_to').val()
 	};
+	let country = $('#search-country').val();
 	let filter = encodeURI(JSON.stringify(data));
-	window.location.href = '/search?filter=' + filter;
+	window.location.href = '/search?filter=' + filter + '&country=' + country;
 });
