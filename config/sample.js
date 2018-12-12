@@ -122,7 +122,6 @@ const user_list = [
 		"city": "Lappeenranta",
 		"country": "FI"
 	},
-	,
 	{
 		"fullname": "Muxing Liu",
 		"email": "muxing.liu@student.lut.fi",
@@ -130,7 +129,6 @@ const user_list = [
 		"city": "Lappeenranta",
 		"country": "SE"
 	},
-	,
 	{
 		"fullname": "Tanvir Hassan",
 		"email": "tanvir.hassan@student.lut.fi",

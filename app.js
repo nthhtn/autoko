@@ -26,7 +26,7 @@ app.set('views', './view');
 
 app.use(morgan('dev'));
 
-require('./lib/sample')();
+// require('./lib/sample')();
 
 MongoClient.connect(mongo_url.FI, { useNewUrlParser: true }, async (err, client_FI) => {
 	const db_FI = await client_FI.db(mongo_url.FI.split('/')[3]);
