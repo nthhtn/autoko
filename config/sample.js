@@ -53,90 +53,91 @@ const manufacturer_list = [
 	"Porsche"
 ];
 
-const user_list = [{
-	"fullname": "Kim Delucia",
-	"email": "kdelucia0@intel.com",
-	"address": "142 Hermina Terrace",
-	"city": "Mölnlycke",
-	"country": "SE"
-}, {
-	"fullname": "Care Portt",
-	"email": "cportt1@eventbrite.com",
-	"address": "2 Nobel Terrace",
-	"city": "Oslo",
-	"country": "NO"
-}, {
-	"fullname": "Willem Wombwell",
-	"email": "wwombwell2@edublogs.org",
-	"address": "06131 Birchwood Terrace",
-	"city": "Finspång",
-	"country": "SE"
-}, {
-	"fullname": "Tyrus Allsupp",
-	"email": "tallsupp3@goodreads.com",
-	"address": "2 Cody Crossing",
-	"city": "Trollhättan",
-	"country": "SE"
-}, {
-	"fullname": "Kerrin Vine",
-	"email": "kvine4@last.fm",
-	"address": "9 Dennis Plaza",
-	"city": "Urjala",
-	"country": "FI"
-}, {
-	"fullname": "Drucy Camplin",
-	"email": "dcamplin5@stumbleupon.com",
-	"address": "0 Pepper Wood Court",
-	"city": "Karlstad",
-	"country": "SE"
-}, {
-	"fullname": "Brantley Tokley",
-	"email": "btokley6@noaa.gov",
-	"address": "6 Birchwood Plaza",
-	"city": "Arlöv",
-	"country": "SE"
-}, {
-	"fullname": "Ingemar Harbage",
-	"email": "iharbage7@about.me",
-	"address": "447 Moland Junction",
-	"city": "Lidingö",
-	"country": "SE"
-}, {
-	"fullname": "Martie Carwithim",
-	"email": "mcarwithim8@engadget.com",
-	"address": "2 Russell Circle",
-	"city": "Skien",
-	"country": "NO"
-}, {
-	"fullname": "Boote Croydon",
-	"email": "bcroydon9@symantec.com",
-	"address": "0244 Buell Circle",
-	"city": "Stockholm",
-	"country": "SE"
-},
-{
-	"fullname": "Hien Nguyen",
-	"email": "hien.nguyen@student.lut.fi",
-	"address": "2A18 Punkkerikatu",
-	"city": "Lappeenranta",
-	"country": "FI"
-},
-,
-{
-	"fullname": "Muxing Liu",
-	"email": "muxing.liu@student.lut.fi",
-	"address": "5 Punkkerikatu",
-	"city": "Lappeenranta",
-	"country": "FI"
-},
-,
-{
-	"fullname": "Tanvir Hassan",
-	"email": "tanvir.hassan@student.lut.fi",
-	"address": "Unknown",
-	"city": "Lappeenranta",
-	"country": "FI"
-}];
+const user_list = [
+	// 	{
+	// 	"fullname": "Kim Delucia",
+	// 	"email": "kdelucia0@intel.com",
+	// 	"address": "142 Hermina Terrace",
+	// 	"city": "Mölnlycke",
+	// 	"country": "SE"
+	// }, {
+	// 	"fullname": "Care Portt",
+	// 	"email": "cportt1@eventbrite.com",
+	// 	"address": "2 Nobel Terrace",
+	// 	"city": "Oslo",
+	// 	"country": "NO"
+	// }, {
+	// 	"fullname": "Willem Wombwell",
+	// 	"email": "wwombwell2@edublogs.org",
+	// 	"address": "06131 Birchwood Terrace",
+	// 	"city": "Finspång",
+	// 	"country": "SE"
+	// }, {
+	// 	"fullname": "Tyrus Allsupp",
+	// 	"email": "tallsupp3@goodreads.com",
+	// 	"address": "2 Cody Crossing",
+	// 	"city": "Trollhättan",
+	// 	"country": "SE"
+	// }, {
+	// 	"fullname": "Kerrin Vine",
+	// 	"email": "kvine4@last.fm",
+	// 	"address": "9 Dennis Plaza",
+	// 	"city": "Urjala",
+	// 	"country": "FI"
+	// }, {
+	// 	"fullname": "Drucy Camplin",
+	// 	"email": "dcamplin5@stumbleupon.com",
+	// 	"address": "0 Pepper Wood Court",
+	// 	"city": "Karlstad",
+	// 	"country": "SE"
+	// }, {
+	// 	"fullname": "Brantley Tokley",
+	// 	"email": "btokley6@noaa.gov",
+	// 	"address": "6 Birchwood Plaza",
+	// 	"city": "Arlöv",
+	// 	"country": "SE"
+	// }, {
+	// 	"fullname": "Ingemar Harbage",
+	// 	"email": "iharbage7@about.me",
+	// 	"address": "447 Moland Junction",
+	// 	"city": "Lidingö",
+	// 	"country": "SE"
+	// }, {
+	// 	"fullname": "Martie Carwithim",
+	// 	"email": "mcarwithim8@engadget.com",
+	// 	"address": "2 Russell Circle",
+	// 	"city": "Skien",
+	// 	"country": "NO"
+	// }, {
+	// 	"fullname": "Boote Croydon",
+	// 	"email": "bcroydon9@symantec.com",
+	// 	"address": "0244 Buell Circle",
+	// 	"city": "Stockholm",
+	// 	"country": "SE"
+	// },
+	{
+		"fullname": "Hien Nguyen",
+		"email": "hien.nguyen@student.lut.fi",
+		"address": "2A18 Punkkerikatu",
+		"city": "Lappeenranta",
+		"country": "FI"
+	},
+	,
+	{
+		"fullname": "Muxing Liu",
+		"email": "muxing.liu@student.lut.fi",
+		"address": "5 Punkkerikatu",
+		"city": "Lappeenranta",
+		"country": "SE"
+	},
+	,
+	{
+		"fullname": "Tanvir Hassan",
+		"email": "tanvir.hassan@student.lut.fi",
+		"address": "Unknown",
+		"city": "Lappeenranta",
+		"country": "NO"
+	}];
 
 const power_list = [80, 100, 125, 150, 175, 200, 225, 250, 300, 350];
 

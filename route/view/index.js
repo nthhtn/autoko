@@ -12,6 +12,12 @@ import Promise from 'bluebird';
 module.exports = (app) => {
 
 	const router = express.Router();
+	const ModelFI = new ModelModel(app.db_FI);
+	const ModelSE = new ModelModel(app.db_SE);
+	const ModelNO = new ModelModel(app.db_NO);
+	const ImageFI = new ImageModel(app.db_FI);
+	const ImageSE = new ImageModel(app.db_SE);
+	const ImageNO = new ImageModel(app.db_NO);
 
 	router.route('/')
 		.get(async (req, res) => {
@@ -51,14 +57,14 @@ module.exports = (app) => {
 		});
 
 	router.route('/signout')
-		.get(middleware.isSignedIn, async (req, res, next) => {
+		.get(middleware.isSignedIn, async (req, res) => {
 			req.session.destroy((err) => {
 				return res.redirect('/');
 			});
 		});
 
 	router.route('/car/:id')
-		.get(async (req, res, next) => {
+		.get(async (req, res) => {
 			const Stock = new StockModel(req._db);
 			const Manufacturer = new ManufacturerModel(req._db);
 			const Model = new ModelModel(req._db);

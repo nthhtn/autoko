@@ -43,6 +43,7 @@ MongoClient.connect(mongo_url.FI, { useNewUrlParser: true }, async (err, client_
 	require('./route/view/index')(app);
 	require('./route/view/search')(app);
 	require('./route/view/sell')(app);
+	require('./route/view/profile')(app);
 });
 
 app.listen(3000, () => console.log('Listening on port 3000'));

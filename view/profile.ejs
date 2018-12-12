@@ -1,0 +1,139 @@
+<html lang="en">
+
+<head>
+	<title>Autoko</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<%-include('base/plugins')%>
+	<link rel="stylesheet" href="/css/profile.css">
+</head>
+
+<body>
+	<%-include('base/navbar')%>
+	<div class="wrapper container">
+		<div class="card card-nav-tabs card-plain">
+			<div class="card-header card-header-primary">
+				<div class="nav-tabs-navigation">
+					<div class="nav-tabs-wrapper">
+						<ul class="nav nav-tabs" data-tabs="tabs">
+							<li class="nav-item">
+								<a class="nav-link active" href="#info" data-toggle="tab">Personal info</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#car_sale" data-toggle="tab">Cars sale</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#car_purchase" data-toggle="tab">Cars purchase</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="tab-content text-center">
+					<div class="tab-pane active" id="info">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="email">Email</label>
+								<input type="email" class="form-control" id="email" disabled value="<%=user.email%>">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="password">Password</label>
+								<input type="password" class="form-control" id="password">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="fullname">Fullname</label>
+								<input type="text" class="form-control" id="fullname" value="<%=user.fullname%>">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="address">Street address</label>
+								<input type="text" class="form-control" id="address" value="<%=user.address%>">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="city">City</label>
+								<input type="text" class="form-control" id="city" value="<%=user.city%>">
+							</div>
+							<div class="form-group col-md-6">
+								<select class="form-control" data-style="btn btn-link" id="country" style="margin-top:22px;">
+									<option value="FI">Finland</option>
+									<option value="SE">Sweden</option>
+									<option value="NO">Norway</option>
+								</select>
+							</div>
+						</div>
+						<p class="error"></p>
+						<button class="btn btn-primary" id="profile-btn">Update</button>
+					</div>
+					<div class="tab-pane" id="car_sale">
+						<table class="table table-bordered">
+							<thead class="thead-dark text-center">
+								<tr>
+									<th style="width: 20%;">Car item name</th>
+									<th style="width: 10%;">Manufacturer</th>
+									<th style="width: 10%;">Model</th>
+									<th style="width: 10%;">Price</th>
+									<th style="width: 10%;">Status</th>
+									<th style="width: 20%;">Buyer</th>
+									<th style="width: 20%;">Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								<%  sales_FI.forEach(function (item) { %>
+								<tr id="sale-<%=item.id%>">
+									<td>
+										<%=item.name%>
+									</td>
+									<td>
+										<%=item.manufacturer.name%>
+									</td>
+									<td>
+										<%=item.model.name%>
+									</td>
+									<td>
+										<%=item.price%>
+									</td>
+									<td>
+										<%=item.purchase_status%>
+									</td>
+									<td>
+										<%if (item.buyer){%>
+										<%=item.buyer.email%>
+										<%}%>
+									</td>
+									<td>
+										<button class="btn btn-primary btn-fab btn-fab-mini btn-round" data-toggle='tooltip' title='View details'>
+											<i class="fa fa-eye"></i>
+										</button>
+										<button class="btn btn-primary btn-fab btn-fab-mini btn-round" data-toggle='tooltip' title='Check sold'>
+											<i class="fa fa-check"></i>
+										</button>
+										<button class="btn btn-primary btn-fab btn-fab-mini btn-round" data-toggle='tooltip' title='Edit'>
+											<i class="fa fa-pencil"></i>
+										</button>
+										<button class="btn btn-primary btn-fab btn-fab-mini btn-round" data-toggle='tooltip' title='Remove'>
+											<i class="fa fa-trash"></i>
+										</button>
+									</td>
+								</tr>
+								<% }) %>
+							</tbody>
+						</table>
+					</div>
+					<div class="tab-pane" id="car_purchase">
+						TBD2
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('#country').val('<%=user.country%>');
+	</script>
+	<script src='/js/profile.js'></script>
+</body>
+
+</html>

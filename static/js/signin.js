@@ -20,8 +20,7 @@ $('#signin-btn').on('click', () => {
 	let data = {
 		// email: $('#email').val(),
 		email: 'kvine4@last.fm',
-		// password: $('#password').val()
-		password: '123456789'
+		password: $('#password').val()
 	};
 	$.ajax({
 		url: '/signin',

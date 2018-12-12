@@ -1,0 +1,42 @@
+@font-face {
+	font-family: "OpenSans Semibold";
+	src: url('/fonts/OpenSans/OpenSans-Semibold.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Bold";
+	src: url('/fonts/OpenSans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Regular";
+	src: url('/fonts/OpenSans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: "OpenSans Italic";
+	src: url('/fonts/OpenSans/OpenSans-Italic.ttf');
+}
+
+@font-face {
+	font-family: PrimeLight;
+	src: url('/fonts/prime/Prime Light.otf') format('opentype');
+}
+
+@font-face {
+	font-family: PrimeRegular;
+	src: url('/fonts/prime/Prime Regular.otf') format('opentype');
+}
+
+.wrapper.container {
+	margin-top: 150px;
+}
+
+#info label {
+	margin-left: 5px;
+}
+
+.error {
+	color: red;
+	margin-left: 15px;
+}

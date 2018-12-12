@@ -52,6 +52,97 @@ export default class StockModel {
 
 	}
 
+	async readAsSeller(seller_id) {
+		try {
+			let aggregate = [];
+			const manufacturer_lookup = {
+				from: 'car_manufacturer',
+				localField: 'manufacturer_id',
+				foreignField: '_id',
+				as: 'manufacturer'
+			};
+			aggregate.push({ '$lookup': manufacturer_lookup });
+			const manufacturer_unwind = { '$unwind': '$manufacturer' };
+			aggregate.push(manufacturer_unwind);
+			const model_lookup = {
+				from: 'car_model',
+				localField: 'model_id',
+				foreignField: '_id',
+				as: 'model'
+			};
+			aggregate.push({ '$lookup': model_lookup });
+			const model_unwind = { '$unwind': '$model' };
+			aggregate.push(model_unwind);
+			// const seller_lookup = {
+			// 	from: 'user',
+			// 	localField: 'seller_id',
+			// 	foreignField: '_id',
+			// 	as: 'seller'
+			// };
+			// aggregate.push({ '$lookup': seller_lookup });
+			// const seller_unwind = { '$unwind': '$seller' };
+			// aggregate.push(seller_unwind);
+			const buyer_lookup = {
+				from: 'user',
+				localField: 'buyer_id',
+				foreignField: '_id',
+				as: 'buyer'
+			};
+			aggregate.push({ '$lookup': buyer_lookup });
+			const buyer_unwind = {
+				'$unwind': {
+					path: '$buyer',
+					preserveNullAndEmptyArrays: true
+				}
+			};
+			aggregate.push(buyer_unwind);
+			aggregate.push({ '$match': { seller_id } });
+			const list = await this._db.collection(this._collection).aggregate(aggregate).sort({ date_posted: -1 }).toArray();
+			return Promise.resolve(list);
+		} catch (error) {
+			return Promise.reject(error);
+		}
+	}
+
+	async readAsBuyer(buyer_id) {
+		try {
+			let aggregate = [];
+			const manufacturer_lookup = {
+				from: 'car_manufacturer',
+				localField: 'manufacturer_id',
+				foreignField: '_id',
+				as: 'manufacturer'
+			};
+			aggregate.push({ '$lookup': manufacturer_lookup });
+			const manufacturer_unwind = { '$unwind': '$manufacturer' };
+			aggregate.push(manufacturer_unwind);
+			const model_lookup = {
+				from: 'car_model',
+				localField: 'model_id',
+				foreignField: '_id',
+				as: 'model'
+			};
+			aggregate.push({ '$lookup': model_lookup });
+			const model_unwind = { '$unwind': '$model' };
+			aggregate.push(model_unwind);
+			const seller_lookup = {
+				from: 'user',
+				localField: 'seller_id',
+				foreignField: '_id',
+				as: 'seller'
+			};
+			aggregate.push({ '$lookup': seller_lookup });
+			const seller_unwind = { '$unwind': '$seller' };
+			aggregate.push(seller_unwind);
+			aggregate.push({ '$match': { buyer_id } });
+			const list = await this._db.collection(this._collection).aggregate(aggregate).sort({ date_posted: -1 }).toArray();
+			return Promise.resolve(list);
+		} catch (error) {
+			return Promise.reject(error);
+		}
+	}
+
+
 	async queryByFields(fields = {}, sort = { date_posted: -1 }, limit = 9, offset = 0) {
 		try {
 			const list = await this._db.collection(this._collection).find(fields).sort(sort).skip(offset).limit(limit).toArray();

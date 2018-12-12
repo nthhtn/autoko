@@ -55,7 +55,7 @@ module.exports = (app) => {
 				price: parseFloat(price),
 				registration_year: parseInt(registration_year),
 				seller_id: req.session.user._id,
-				purchase_status: false,
+				purchase_status: 'available',
 				date_posted: Date.now()
 			});
 			const Stock = new StockModel(req._db);
