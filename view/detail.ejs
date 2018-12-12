@@ -12,7 +12,7 @@
 	<%-include('base/navbar')%>
 	<div class="wrapper container-fluid">
 		<div class="row">
-			<div class="ml-auto mr-auto card col-md-9 col-sm-9 col-xs-9">
+			<div class="ml-auto mr-auto card col-md-8 col-sm-8 col-xs-8" id="product-wrapper">
 				<div class="card-header card-header-primary">
 					<h4 class="card-title text-center">
 						<%=car.name%>
@@ -54,6 +54,11 @@
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-12 row">
+						<div class="col-md-12 col-sm-12 col-xs-12 product-field">
+							<p><span class="title">Purchase status:</span>
+								<%=car.purchase_status%>
+							</p>
+						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
 							<p><span class="title">Manufacturer:</span>
 								<%=manufacturer.name%>
@@ -157,14 +162,14 @@
 							</div>
 						</div>
 					</div>
-					<button class="btn btn-primary ml-auto mr-auto">
+					<button class="btn btn-primary ml-auto mr-auto" id="buy-btn">
 						<i class="material-icons">add_shopping_cart</i> Buy
 					</button>
 				</div>
 				<div class="card-footer">
 				</div>
 			</div>
-			<div class="col-md-2 col-sm-2 col-xs-2 card" id="wrapper-search">
+			<div class="col-md-3 col-sm-3 col-xs-3 card" id="wrapper-search">
 				<div class="card-header card-header-primary">
 					<h4 class="card-title text-center">Seek another ?</h4>
 				</div>
@@ -175,7 +180,7 @@
 								<i class="fa fa-search"></i>
 							</span>
 						</div>
-						<input type="text" class="form-control" placeholder="What do you want to find?">
+						<input type="text" class="form-control" placeholder="What do you want to find?" id="search-keyword">
 					</div>
 					<div class="input-group">
 						<div class="input-group-prepend">
@@ -193,26 +198,106 @@
 								<i class="fa fa-car"></i>
 							</span>
 						</div>
-						<input type="text" class="form-control" placeholder="Model">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="search-model" disabled>
+							<option value="0">Any model</option>
+						</select>
 					</div>
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">
-								<i class="fa fa-arrow-up"></i>
+								<i class="fa fa-pencil"></i>
 							</span>
 						</div>
-						<input type="number" class="form-control" placeholder="Price: from">
+						<select class="form-control selectpicker" data-style="btn btn-link" id="search-color">
+							<option value="0">Any color</option>
+							<option value="black">Black</option>
+							<option value="blue">Blue</option>
+							<option value="bronze">Bronze</option>
+							<option value="grey">Grey</option>
+							<option value="gold">Gold</option>
+							<option value="red">Red</option>
+							<option value="silver">Silver</option>
+							<option value="other">Other color</option>
+						</select>
 					</div>
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">
-								<i class="fa fa-arrow-down"></i>
+								<i class="fa fa-money"></i>
 							</span>
 						</div>
-						<input type="number" class="form-control" placeholder="Price: to">
+						<input type="number" id="price_from" class="form-control" placeholder="Price (euro): from">
+						<input type="number" id="price_to" class="form-control" placeholder="to">
 					</div>
 					<div class="input-group">
-						<button class="btn btn-primary ml-auto mr-auto" style="height:fit-content;">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-superpowers"></i>
+							</span>
+						</div>
+						<input type="number" id="engine_from" class="form-control" placeholder="Engine size (cc): from">
+						<input type="number" id="engine_to" class="form-control" placeholder="to">
+					</div>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-sun-o"></i>
+							</span>
+						</div>
+						<input type="number" id="power_from" class="form-control" placeholder="Power (kW): from">
+						<input type="number" id="power_to" class="form-control" placeholder="to">
+					</div>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-retweet"></i>
+							</span>
+						</div>
+						<input type="number" id="cylinder_from" class="form-control" placeholder="Cylinder: from">
+						<input type="number" id="cylinder_to" class="form-control" placeholder="to">
+					</div>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-battery-full"></i>
+							</span>
+						</div>
+						<select class="form-control selectpicker" data-style="btn btn-link" id="search-fuel">
+							<option value="0">Any fuel type</option>
+							<option value="diesel">Diesel</option>
+							<option value="electric">Electric</option>
+							<option value="lgp">LGP</option>
+							<option value="petrol">Petrol</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-cog"></i>
+							</span>
+						</div>
+						<select class="form-control selectpicker" data-style="btn btn-link" id="search-transmission">
+							<option value="0">Any transmission</option>
+							<option value="amt">AMT</option>
+							<option value="automatic">Automatic</option>
+							<option value="manual">Manual</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-globe"></i>
+							</span>
+						</div>
+						<select class="form-control selectpicker" data-style="btn btn-link" id="search-country">
+							<option value="FI">Finland</option>
+							<option value="SE">Sweden</option>
+							<option value="NO">Norway</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<button class="btn btn-primary ml-auto mr-auto" id='search-btn'>
 							<i class="material-icons">search</i> Search
 						</button>
 					</div>
@@ -220,7 +305,66 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal" role="dialog" id="signin-modal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Sign in or fill your information</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="wrapper container">
+						<ul class="nav nav-pills nav-pills-primary" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" data-toggle="tab" href="#signin" role="tablist" aria-expanded="true">
+									Sign in
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" data-toggle="tab" href="#fill" role="tablist" aria-expanded="false">
+									Fill your information
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content text-center">
+							<div class="tab-pane active" id="signin">
+								<div class="card-body">
+									<h5>Please sign in to continue purchase</h5>
+									<div id="signin-form">
+										<p class="error"></p>
+										<div class="form-group">
+											<label for="email">Email</label>
+											<input type="text" class="form-control" id="signin-email">
+										</div>
+										<div class="form-group">
+											<label for="password">Password</label>
+											<input type="password" class="form-control" id="signin-password">
+										</div>
+										<button type="button" class="btn btn-primary" id="signin-btn">Sign in</button>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="fill" style="margin-top:20px;">
+								<h4>This feature is under construction</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+				</div>
+			</div>
+		</div>
 	</div>
+	<script>
+		let user = '<%=user%>';
+		if (user) {
+			user = JSON.parse('<%-JSON.stringify(user)%>');
+		}
+		let car = JSON.parse('<%-JSON.stringify(car)%>');
+	</script>
+	<script src='/js/detail.js'></script>
 </body>
 
 </html>

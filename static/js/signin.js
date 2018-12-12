@@ -18,8 +18,7 @@ $('#signin-btn').on('click', () => {
 	// if (!validate()) { return $('.error').text('Missing field(s)'); }
 	$('.error').text('');
 	let data = {
-		// email: $('#email').val(),
-		email: 'kvine4@last.fm',
+		email: $('#email').val(),
 		password: $('#password').val()
 	};
 	$.ajax({

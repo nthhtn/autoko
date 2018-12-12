@@ -143,9 +143,9 @@ export default class StockModel {
 	}
 
 
-	async queryByFields(fields = {}, sort = { date_posted: -1 }, limit = 9, offset = 0) {
+	async queryByFields(fields = {}, sort = { date_posted: -1 }) {
 		try {
-			const list = await this._db.collection(this._collection).find(fields).sort(sort).skip(offset).limit(limit).toArray();
+			const list = await this._db.collection(this._collection).find(fields).sort(sort).toArray();
 			return Promise.resolve(list);
 		} catch (error) {
 			return Promise.reject(error);
@@ -161,7 +161,7 @@ export default class StockModel {
 		}
 	}
 
-	async lookup(fields = {}, keyword = '', sort = { date_posted: -1 }, limit = 9, offset = 0) {
+	async lookup(fields = {}, keyword = '', sort = { date_posted: -1 }) {
 		try {
 			const regex = new RegExp(keyword, 'gi');
 			let aggregate = [];
@@ -198,10 +198,11 @@ export default class StockModel {
 			if (fields.engine) { match['model.engine'] = fields.engine; }
 			if (fields.cylinder) { match['model.cylinder'] = fields.cylinder; }
 			if (fields.color) { match.color = fields.color; }
+			if (fields.purchase_status) { match.purchase_status = fields.purchase_status; }
 			match_or.push({ 'name': { $regex: regex, $options: 'i' } });
 			match_or.push({ 'description': { $regex: regex, $options: 'i' } });
 			aggregate.push({ '$match': match });
-			const list = await this._db.collection(this._collection).aggregate(aggregate).sort(sort).skip(offset).limit(limit).toArray();
+			const list = await this._db.collection(this._collection).aggregate(aggregate).sort(sort).toArray();
 			return Promise.resolve(list);
 		} catch (error) {
 			return Promise.reject(error);

@@ -1,13 +1,19 @@
-// Prerequisite: Connection to appropriate instance has been established
-// Case 1: Insert a CarStock row onto current db
-// Case 2: 
-// 1. Insert a CarModel row onto current db
-// 2. Replicate that row onto others (manually looping through all instances)
-// 3. Insert a CarStock row, referencing new CarModel row onto current db only
+import express from 'express';
+import crypto from 'crypto';
+import StockModel from '../../model/car_manufacturer';
+import middleware from '../../lib/middleware';
 
-// MongoDB does not support partial replication (cannot choose to replicate certain tables, but all)
-// Use Mongo driver to perform write actions myself
+module.exports = (app) => {
 
-// Two-phase commit transaction
-// Concurrency management
-// Prevent deadlock
+	const router = express.Router();
+
+	router.route('/car_stocks')
+		.get(async (req, res) => {
+			const Stock = new StockModel(req._db);
+			const list = await Stock.queryByFields({});
+			return res.json({ success: true, result: list });
+		});
+
+	app.use('/api', router);
+
+};

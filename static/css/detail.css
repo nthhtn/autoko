@@ -47,7 +47,19 @@
 	padding-top: 27px;
 }
 
+#product-wrapper {
+	height: fit-content;
+}
+
 .product-details .card {
 	border: none;
 	box-shadow: none;
+}
+
+#reserve-btn {
+	height: fit-content;
+}
+
+#search-btn {
+	height: fit-content;
 }

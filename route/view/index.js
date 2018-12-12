@@ -21,19 +21,14 @@ module.exports = (app) => {
 
 	router.route('/')
 		.get(async (req, res) => {
-			const sort = { date_posted: -1 };
-			const limit = 9;
-			const page = req.query.page || 1;
 			const Stock = new StockModel(req._db);
 			const Image = new ImageModel(req._db);
-			let cars = await Stock.queryByFields({}, sort, limit, limit * (page - 1));
-			const count = await Stock.countByFields({});
-			const has_more = count > limit * (page - 1) + cars.length;
+			let cars = await Stock.queryByFields({ purchase_status: 'available' });
 			Promise.map(cars, async (car) => {
 				const images = await Image.queryByFields({ car_id: car._id });
 				car.avatar = images[0].filename;
 			}).then(() => res.render('index', {
-				user: req.session.user, cars, count, has_more, page,
+				user: req.session.user, cars,
 				country: req.query.country || req.ipInfo.country
 			}));
 		});
@@ -45,7 +40,7 @@ module.exports = (app) => {
 			const Preference = new PreferenceModel(req._db);
 			// kvine4@last.fm
 			const { email, password } = req.body;
-			const result = await User.queryByFields({ email });
+			const result = await User.queryByFields({ email, type: 'registered' });
 			if (!result) {
 				return res.status(400).json({ success: false, error: 'Non-registered user' });
 			}
@@ -75,7 +70,8 @@ module.exports = (app) => {
 			const manufacturer = await Manufacturer.read(car.manufacturer_id);
 			const model = await Model.read(car.model_id);
 			const seller = await User.read(car.seller_id);
-			return res.render('detail', { user: req.session.user, car, images, manufacturer, model, seller });
+			const buyer = car.buyer_id || await User.read(car.buyer_id);
+			return res.render('detail', { user: req.session.user, car, images, manufacturer, model, seller, buyer });
 		});
 
 	app.use(router);

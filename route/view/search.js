@@ -36,6 +36,7 @@ module.exports = (app) => {
 				if (filter.power_from != undefined) { fields.power['$gte'] = parseInt(filter.power_from); }
 			};
 			if (filter.color) { fields.color = filter.color; }
+			fields.purchase_status = 'available';
 			const Stock = new StockModel(req._db);
 			const Image = new ImageModel(req._db);
 			let cars = await Stock.lookup(fields, filter.keyword);
