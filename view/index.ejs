@@ -19,7 +19,7 @@
 				</div>
 				<div class="card-body row">
 					<%cars.forEach(function(car){%>
-					<div class="col-md-4 col-sm-6 col-xs-12 product-item">
+					<div class="col-md-4 col-sm-6 col-xs-12 product-item" id='<%=car._id%>'>
 						<div class="product-image">
 							<img src="/uploads/<%=car.avatar%>" alt="">
 						</div>
@@ -30,7 +30,7 @@
 								<div class="product-price col-md-6">
 									<%=car.price%> euro</div>
 								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i
-										 class="material-icons">add_shopping_cart</i> Buy</a></div>
+										 class="material-icons">remove_red_eye</i> Details</a></div>
 							</div>
 						</div>
 					</div>
@@ -44,6 +44,7 @@
 		$('#search-country').val(default_country);
 	</script>
 	<script src="/js/searchform.js"></script>
+	<script src="/js/index.js"></script>
 </body>
 
 </html>

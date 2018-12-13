@@ -198,8 +198,8 @@ export default class StockModel {
 			if (fields.engine) { match['model.engine'] = fields.engine; }
 			if (fields.cylinder) { match['model.cylinder'] = fields.cylinder; }
 			if (fields.color) { match.color = fields.color; }
-			if (fields.fuel) { match.fuel = fields.fuel; }
-			if (fields.transmission) { match.transmission = fields.transmission; }
+			if (fields.fuel) { match['model.fuel'] = fields.fuel; }
+			if (fields.transmission) { match['model.transmission'] = fields.transmission; }
 			if (fields.purchase_status) { match.purchase_status = fields.purchase_status; }
 			match_or.push({ 'name': { $regex: regex, $options: 'i' } });
 			match_or.push({ 'description': { $regex: regex, $options: 'i' } });
