@@ -23,7 +23,7 @@ module.exports = (app) => {
 		.get(async (req, res) => {
 			const Stock = new StockModel(req._db);
 			const Image = new ImageModel(req._db);
-			let cars = await Stock.queryByFields({ purchase_status: 'available' });
+			let cars = await Stock.lookup({ purchase_status: 'available' });
 			Promise.map(cars, async (car) => {
 				const images = await Image.queryByFields({ car_id: car._id });
 				car.avatar = images[0].filename;

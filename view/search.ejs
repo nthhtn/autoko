@@ -29,8 +29,10 @@
 							<div class="row" style="margin: 0">
 								<div class="product-price col-md-6">
 									<%=car.price%> euro</div>
-								<div class="product-view col-md-6"><a href="#" class="btn btn-primary" role="button" aria-disabled="true"><i
-										 class="material-icons">remove_red_eye</i> Details</a></div>
+								<div class="product-view col-md-6"><a href="/car/<%=car._id%>?country=<%=car.country%>" class="btn btn-primary"
+									 role="button" aria-disabled="true">
+										<%=car.manufacturer.name%>&nbsp;
+										<%=car.model.name%></a></div>
 							</div>
 						</div>
 					</div>
