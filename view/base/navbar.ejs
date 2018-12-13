@@ -2,14 +2,14 @@
 	<div class="container">
 		<div class="navbar-translate">
 			<a class="navbar-brand" href="/" style="text-transform: uppercase; font-size: 32px; font-weight: bold; font-family: PrimeRegular">Autoko</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation" data-target="#main-navbar">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="navbar-toggler-icon"></span>
 				<span class="navbar-toggler-icon"></span>
 				<span class="navbar-toggler-icon"></span>
 			</button>
 		</div>
-		<div class="collapse navbar-collapse">
+		<div class="collapse navbar-collapse" id="main-navbar">
 			<ul class="navbar-nav ml-auto">
 				<%if (user){%>
 				<p style="margin: 0; font-weight: bold; font-family: PrimeRegular">Hello,
