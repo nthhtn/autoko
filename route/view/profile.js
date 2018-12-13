@@ -29,15 +29,22 @@ module.exports = (app) => {
 			let sales_FI = await StockFI.readAsSeller(req.session.user._id);
 			let sales_SE = await StockSE.readAsSeller(req.session.user._id);
 			let sales_NO = await StockNO.readAsSeller(req.session.user._id);
-			console.log(sales_FI);
+			let buys_FI = await StockFI.readAsBuyer(req.session.user._id);
+			let buys_SE = await StockSE.readAsBuyer(req.session.user._id);
+			let buys_NO = await StockNO.readAsBuyer(req.session.user._id);
+			const sales = sales_FI.concat(sales_SE).concat(sales_NO)
+			const buys = buys_FI.concat(buys_SE).concat(buys_NO);
 			return res.render('profile', {
 				user: req.session.user,
-				sales_FI, sales_SE, sales_NO
+				sales, buys
 			});
 		})
 		.put(async (req, res) => {
-			let { password } = req.body;
-			password = crypto.createHash('md5').update(password).digest('hex');
+			let { password, confirm } = req.body;
+			if (crypto.createHash('md5').update(confirm).digest('hex') !== req.session.user.password) {
+				return res.status(400).json({ success: false, error: 'Wrong password' });
+			}
+			password = password == '' ? req.session.user.password : crypto.createHash('md5').update(password).digest('hex');
 			const data = Object.assign({}, req.body, { password });
 			const result = await UserFI.update(req.session.user._id, data);
 			await UserSE.update(req.session.user._id, data);

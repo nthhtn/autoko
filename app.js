@@ -40,6 +40,7 @@ MongoClient.connect(mongo_url.FI, { useNewUrlParser: true }, async (err, client_
 	require('./lib/db_routing')(app);
 	require('./route/api/car_manufacturer')(app);
 	require('./route/api/car_model')(app);
+	require('./route/api/car_stock')(app);
 	require('./route/view/index')(app);
 	require('./route/view/search')(app);
 	require('./route/view/sell')(app);

@@ -56,21 +56,38 @@ $('#search-btn').on('click', () => {
 });
 
 $('#buy-btn').on('click', () => {
-	console.log(user);
-	console.log(car);
 	if (!user) {
 		$('#signin-modal').modal('show');
 		return;
 	}
-	console.log(1);
+	$.ajax({
+		url: '/api/car_stock/' + car._id + '?country=' + car.country,
+		method: 'PUT',
+		data: { buyer_id: user._id, purchase_status: 'sold' },
+		success: (response) => {
+			window.location.href = '/car/' + car._id + '?country=' + car.country;
+		}
+	});
 });
+
+function validate() {
+	let isValid = true;
+	$('#signin input').each(function () {
+		let value = $(this).val().trim();
+		if (!value) {
+			isValid = false;
+			return;
+		}
+	});
+	return isValid;
+};
 
 $('#signin input').on('keyup', (e) => {
 	if (e.which === 13) { $('#signin-btn').trigger('click'); }
 });
 
 $('#signin-btn').on('click', () => {
-	// if (!validate()) { return $('.error').text('Missing field(s)'); }
+	if (!validate()) { return $('#signin .error').text('Missing field(s)'); }
 	$('#signin .error').text('');
 	let data = {
 		email: $('#signin-email').val(),

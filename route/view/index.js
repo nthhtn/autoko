@@ -38,11 +38,10 @@ module.exports = (app) => {
 		.post(async (req, res) => {
 			const User = new UserModel(req._db);
 			const Preference = new PreferenceModel(req._db);
-			// kvine4@last.fm
 			const { email, password } = req.body;
 			const result = await User.queryByFields({ email, type: 'registered' });
-			if (!result) {
-				return res.status(400).json({ success: false, error: 'Non-registered user' });
+			if (result.length === 0 || !result[0].password) {
+				return res.status(400).json({ success: false, error: 'User not found' });
 			}
 			if (result[0].password !== crypto.createHash('md5').update(password).digest('hex')) {
 				return res.status(400).json({ success: false, error: 'Wrong password' });
@@ -70,7 +69,7 @@ module.exports = (app) => {
 			const manufacturer = await Manufacturer.read(car.manufacturer_id);
 			const model = await Model.read(car.model_id);
 			const seller = await User.read(car.seller_id);
-			const buyer = car.buyer_id || await User.read(car.buyer_id);
+			const buyer = car.buyer_id ? await User.read(car.buyer_id) : null;
 			return res.render('detail', { user: req.session.user, car, images, manufacturer, model, seller, buyer });
 		});
 

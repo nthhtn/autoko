@@ -15,7 +15,7 @@ $('#signin-form input').on('keyup', (e) => {
 });
 
 $('#signin-btn').on('click', () => {
-	// if (!validate()) { return $('.error').text('Missing field(s)'); }
+	if (!validate()) { return $('.error').text('Missing field(s)'); }
 	$('.error').text('');
 	let data = {
 		email: $('#email').val(),

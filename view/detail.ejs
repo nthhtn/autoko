@@ -55,8 +55,14 @@
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-12 row">
 						<div class="col-md-12 col-sm-12 col-xs-12 product-field">
-							<p><span class="title">Purchase status:</span>
+							<p><span class="title">Purchase status: </span>
+								<%if (buyer){%>
+								sold to
+								<span class='title'>
+									<%=buyer.email%></span>
+								<%} else{%>
 								<%=car.purchase_status%>
+								<%}%>
 							</p>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6 product-field">
@@ -162,9 +168,11 @@
 							</div>
 						</div>
 					</div>
+					<%if (car.purchase_status=='available'){%>
 					<button class="btn btn-primary ml-auto mr-auto" id="buy-btn">
 						<i class="material-icons">add_shopping_cart</i> Buy
 					</button>
+					<%}%>
 				</div>
 				<div class="card-footer">
 				</div>
