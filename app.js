@@ -5,6 +5,9 @@ import morgan from 'morgan';
 import expressip from 'express-ip';
 import { MongoClient } from 'mongodb';
 import mongo_url from './config/mongo';
+import mkdirp from 'mkdirp';
+
+mkdirp.sync(`${__dirname}/static/uploads`);
 
 const app = express();
 
