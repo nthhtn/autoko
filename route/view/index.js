@@ -29,7 +29,7 @@ module.exports = (app) => {
 				car.avatar = images[0].filename;
 			}).then(() => res.render('index', {
 				user: req.session.user, cars,
-				country: req.query.country || req.ipInfo.country
+				country: req.session.country
 			}));
 		});
 

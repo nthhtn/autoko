@@ -366,6 +366,7 @@
 		</div>
 	</div>
 	<script>
+		$('#search-country').val('<%=car.country%>');
 		let user = '<%=user%>';
 		if (user) {
 			user = JSON.parse('<%-JSON.stringify(user)%>');

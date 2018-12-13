@@ -75,7 +75,7 @@ $('#sell-btn').on('click', () => {
 	if (!country) {
 		return $('.error').text('Missing field(s)');
 	}
-	// formdata.append('country', country);
+	formdata.append('country', country);
 	let description = $('#description').val();
 	if (!description) {
 		return $('.error').text('Missing field(s)');

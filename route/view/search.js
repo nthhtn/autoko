@@ -35,7 +35,11 @@ module.exports = (app) => {
 				if (filter.power_to != undefined) { fields.power['$lte'] = parseInt(filter.power_to); }
 				if (filter.power_from != undefined) { fields.power['$gte'] = parseInt(filter.power_from); }
 			};
+			if (filter.manufacturer_id) { fields.manufacturer_id = filter.manufacturer_id; }
+			if (filter.model_id) { fields.model_id = filter.model_id; }
 			if (filter.color) { fields.color = filter.color; }
+			if (filter.fuel) { fields.fuel = filter.fuel; }
+			if (filter.transmission) { fields.transmission = filter.transmission; }
 			fields.purchase_status = 'available';
 			const Stock = new StockModel(req._db);
 			const Image = new ImageModel(req._db);
@@ -45,7 +49,7 @@ module.exports = (app) => {
 				car.avatar = images[0].filename;
 			}).then(() => res.render('search', {
 				user: req.session.user, cars,
-				country: req.query.country || req.ipInfo.country
+				country: req.session.country
 			}));
 		});
 
